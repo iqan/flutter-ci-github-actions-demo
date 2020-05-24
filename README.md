@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+| Master Release | Dev Release |
+| -------------- | ----------- |
+| ![Demo App PlayStore Release](https://github.com/iqans/flutter-ci-github-actions-demo/workflows/Demo%20App%20PlayStore%20Release/badge.svg) | ![Demo App Android Release](https://github.com/iqans/flutter-ci-github-actions-demo/workflows/Demo%20App%20Android%20Release/badge.svg?branch=dev) |
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
