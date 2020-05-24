@@ -2,7 +2,7 @@ name: Demo App Android Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ dev ]
 
 jobs:
   version:
@@ -48,6 +48,12 @@ jobs:
       uses: juliangruber/read-file-action@v1
       with:
         path: version.txt
+    - name: Update version in YAML
+      run: sed -i 's/99.99.99+99/${{ steps.version.outputs.content }}+${{ github.run_number }}/g' pubspec.yaml
+    - name: Update KeyStore password in gradle properties
+      run: sed -i 's/#{KEYSTORE_PASS}#/${{ secrets.KEYSTORE_PASS }}/g' android/key.properties
+    - name: Update KeyStore key password in gradle properties
+      run: sed -i 's/#{KEYSTORE_KEY_PASS}#/${{ secrets.KEYSTORE_KEY_PASS }}/g' android/key.properties
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk --release --split-per-abi
