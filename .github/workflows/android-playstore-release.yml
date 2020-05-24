@@ -1,4 +1,4 @@
-name: DemoApp PlayStore Release
+name: Demo App PlayStore Release
 
 on:
   push:
